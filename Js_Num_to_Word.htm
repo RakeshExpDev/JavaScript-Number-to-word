@@ -1,0 +1,211 @@
+<html>
+<head>
+	
+	<title>Num_to_word</title>
+
+<script>
+var one = ['','One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+var two = ['','Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+var zeroTen = ['', 'Ten','Twenty','Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+var nums;
+var revers;
+
+var dasak= '';
+var so= '';
+var hajar= '';
+var lakh= '';
+var temp1;
+var temp2;
+var value;
+var twoTh;
+var twoThRev;
+var twoLk;
+var twoLkRev;
+
+function main(){
+
+ dasak= '';
+ so= '';
+ hajar= '';
+ lakh= '';
+
+var numb = parseInt(document.f1.num.value);
+	nums = document.f1.num.value;
+
+<!-- For Blank
+if(revers.length == 0){
+document.getElementById('word').innerHTML ='';
+}
+	
+<!--Ekam  -1
+if(revers.charAt(1) == 0){
+
+	for(i=1;i<10;i++){
+
+		if(revers.charAt(0) == i){
+			dasak =one[i]+' ';
+		}<!--if colser
+	}<!-- for Closer
+}<!-- If Closer for one digit
+
+<!--Dasak  -10
+if(revers.charAt(1) == 1){
+
+<!-- Elseven
+	for(i=1;i<10;i++){
+
+		if(revers.charAt(0) == i){
+			dasak =two[i]+' ';
+		}<!-- If Closer
+	}<!--for colser
+}
+if(revers.charAt(0) != 0 && revers.charAt(1) > 1 && revers.charAt(1) < 10){
+
+<!-- Elseven
+	for(i=1;i<10;i++){
+
+		if(revers.charAt(1) == i){
+			temp1 =zeroTen[i];
+		}<!-- If Closer
+	}<!--for colser
+	
+	for(i=1;i<10;i++){
+
+		if(revers.charAt(0) == i){
+			temp2 =one[i];
+		}<!-- If Closer
+	}<!--for colser
+	dasak = temp1+' '+temp2+' ';
+}
+if(revers.charAt(0) == '0' && revers.charAt(1) > 0 && revers.charAt(1) < 10){
+
+	for(i=1;i<10;i++){
+
+		if(revers.charAt(1) == i){
+			dasak =zeroTen[i]+' ';
+		}<!-- If Closer
+	}<!--for colser
+
+}
+
+if(revers.charAt(2) > 0 && revers.charAt(2) < 10){
+
+	for(i=1;i<10;i++){
+
+		if(revers.charAt(2) == i){
+			so =one[i]+' '+'Hundred'+' ';
+		}<!-- If Closer
+	}<!--for colser
+
+}
+
+if(revers.charAt(0) == '0' && revers.charAt(1) == '0' && revers.charAt(2) > 0 && revers.charAt(2) < 10){
+
+	for(i=1;i<10;i++){
+
+		if(revers.charAt(2) == i){
+			so =one[i]+' '+'Hundred'+' ';
+		}<!-- If Closer
+	}<!--for colser
+
+}
+
+//Thousand
+twoTh = parseInt(revers.charAt(4)+''+revers.charAt(3));
+twoThRev = revers.charAt(3)+''+revers.charAt(4);
+
+if(twoTh>0 && twoThRev<100){
+
+twodigit(twoThRev);
+hajar = value+' Thousand ';
+}
+
+
+// Lakh
+twoLk = parseInt(revers.charAt(6)+''+revers.charAt(5));
+twoLkRev = revers.charAt(5)+''+revers.charAt(6);
+
+if(twoLk>0 && twoLkRev<100){
+
+twodigit(twoLkRev);
+lakh = value+' Lakh ';
+}
+
+
+// Write to div
+if(revers.length != 0){
+	document.getElementById('word').innerHTML = lakh+hajar+so+dasak+' only';
+	}
+}<!--Main Function Closer
+
+
+
+function twodigit(digit){
+
+if(digit.charAt(1) == 0){
+
+	for(i=1;i<10;i++){
+
+		if(digit.charAt(0) == i){
+			value =one[i]+' ';
+		}<!--if colser
+	}<!-- for Closer
+}<!-- If Closer for one digit
+
+<!--value  -10
+if(digit.charAt(1) == 1){
+
+<!-- Elseven
+	for(i=1;i<10;i++){
+
+		if(digit.charAt(0) == i){
+			value =two[i]+' ';
+		}<!-- If Closer
+	}<!--for colser
+}
+if(digit.charAt(0) != 0 && digit.charAt(1) > 1 && digit.charAt(1) < 10){
+
+<!-- Elseven
+	for(i=1;i<10;i++){
+
+		if(digit.charAt(1) == i){
+			temp1 =zeroTen[i];
+		}<!-- If Closer
+	}<!--for colser
+	
+	for(i=1;i<10;i++){
+
+		if(digit.charAt(0) == i){
+			temp2 =one[i];
+		}<!-- If Closer
+	}<!--for colser
+	value = temp1+' '+temp2+' ';
+}
+if(digit.charAt(0) == '0' && digit.charAt(1) > 0 && digit.charAt(1) < 10){
+
+	for(i=1;i<10;i++){
+
+		if(digit.charAt(1) == i){
+			value =zeroTen[i]+' ';
+		}<!-- If Closer
+	}<!--for colser
+
+}
+
+
+}//end of function two digit
+</script>
+
+</head>
+
+<body onload="document.f1.num.focus()">
+<br><br><br>
+	<form name="f1">
+		Number:- <input type="number" name="num" onkeyup="nums=this.value;revers = nums.split('').reverse().join('');main();" /> <br>
+	</form> <br/>
+	
+	<div style="position:relative;float:left;">Word:- &nbsp;</div>
+	<div id="word" style="position:relative;height:20px;width:500px;border:1px solid black;float:left;"> </div>
+
+</body>
+</html>
